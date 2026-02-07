@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrorkie | Autoscroller & Songbook</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2a8bcd658f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="main-nav" aria-label="Main Navigation">
+    <div class="nav-content">
+      <div class="logo-box" role="button" aria-label="Scrorkie Home" tabindex="0">
+        <span class="logo-icon"></span>
+        <span class="logo-text">Scrorkie</span>
+      </div>
+      <div class="nav-links">
+        <button id="btn-saved" class="nav-item" aria-label="View Saved Songs">Saved Songs</button>
+        <button id="btn-support" class="nav-item support-btn" aria-label="Open Support Options">Support Me</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="editor-view" class="container">
+    <button id="theme-toggle" class="circle-btn theme-btn" aria-label="Toggle Dark Mode">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <div class="input-group">
+      <label for="title-input">Title</label>
+      <input type="text" id="title-input" placeholder="Enter song title..." aria-required="true">
+
+      <label for="artist-input">Artist</label>
+      <input type="text" id="artist-input" placeholder="Enter artist name...">
+    </div>
+
+    <div class="lyrics-group">
+      <label for="lyrics-input" class="hidden">Lyrics and Chords</label>
+      <textarea id="lyrics-input"
+        placeholder="Paste your lyrics and chords here...&#10;(Pro tip: use spaces to align chords!)"
+        aria-multiline="true"></textarea>
+    </div>
+
+    <button id="btn-start" class="btn-primary">Get Scrollin’</button>
+  </main>
+
+  <main id="library-view" class="container hidden" aria-labelledby="library-heading">
+    <div class="library-header">
+      <h2 id="library-heading">My Songbook</h2>
+
+      <div class="library-actions">
+        <button id="btn-export" class="action-link" title="Download backup">
+          <i class="fa-solid fa-download"></i> Export
+        </button>
+        <label for="import-input" class="action-link" title="Restore from backup">
+          <i class="fa-solid fa-upload"></i> Import
+        </label>
+        <input type="file" id="import-input" class="hidden" accept=".json">
+      </div>
+
+      <input type="text" id="search-input" placeholder="Search titles or artists..."
+        aria-label="Search your saved songs">
+
+    </div>
+
+    <div id="songs-grid" class="songs-grid" role="region" aria-live="polite">
+    </div>
+
+    <div class="library-actions">
+      <button id="btn-export" class="nav-item">Backup (Export)</button>
+      <label for="import-input" class="nav-item">Restore (Import)</label>
+      <input type="file" id="import-input" class="hidden" accept=".json">
+    </div>
+  </main>
+
+  <main id="viewer-view" class="container hidden" aria-labelledby="song-title-display">
+    <div class="viewer-actions">
+      <button id="btn-delete" class="circle-btn delete-top-btn" title="Delete Song" aria-label="Delete this song">
+        <i class="fa-solid fa-trash-can" aria-hidden="true"></i>
+      </button>
+      <button id="btn-edit" class="circle-btn edit-top-btn" title="Edit Song" aria-label="Edit this song">
+        <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <h1 id="song-title-display">Title</h1>
+    <pre id="lyrics-display" role="article" aria-label="Song lyrics and chords"></pre>
+
+    <div class="controls" role="group" aria-label="Playback controls">
+      <button class="circle-btn" id="btn-reset" aria-label="Reset scroll to top">
+        <i class="fa-solid fa-rotate-right fa-rotate-180" aria-hidden="true"></i>
+      </button>
+      <button class="circle-btn" id="btn-play" aria-label="Play autoscroll">
+        <i class="fa-solid fa-play start-condition" aria-hidden="true"></i>
+      </button>
+      <button class="circle-btn hidden" id="btn-pause" aria-label="Pause autoscroll">
+        <i class="fa-solid fa-pause pause-condition" aria-hidden="true"></i>
+      </button>
+      <button class="circle-btn" id="btn-slower" aria-label="Decrease scroll speed">
+        <i class="fa-solid fa-minus" aria-hidden="true"></i>
+      </button>
+      <button class="circle-btn" id="btn-faster" aria-label="Increase scroll speed">
+        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div id="speed-badge" class="speed-badge hidden" role="status" aria-live="assertive">Speed: 5</div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    Powered by ZiA
+  </footer>
+
+  <div id="support-drawer" class="drawer hidden" role="dialog" aria-modal="true" aria-labelledby="support-heading">
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="drawer-content">
+      <div class="drawer-handle" id="drawer-handle" role="button" aria-label="Close support drawer"></div>
+
+      <h2 id="support-heading">Support Scrorkie</h2>
+      <p>I hope this app helps you nail those chords! If you're feeling generous, feel free to support the journey.</p>
+
+      <div class="support-options">
+        <div class="bmc-container">
+          <a href="https://buymeacoffee.com/l_zia_l" target="_blank" aria-label="Buy Me A Coffee">
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee button"
+              style="height: 60px !important;width: 217px !important;">
+          </a>
+        </div>
+        <a href="#" class="support-link work-btn" role="button">Work With Me</a>
+        <a href="#" class="support-link gear-btn" role="button">Gear I Use</a>
+        <a href="#" class="support-link creations-btn" role="button">Other Creations</a>
+      </div>
+
+      <button id="btn-close-drawer" class="btn-primary maybe-later-btn" aria-label="Close support drawer">Maybe
+        later</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
