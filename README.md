@@ -17,9 +17,10 @@ Most tab sites are cluttered with ads, pop-ups, and "Subscribe Now!" banners. Sc
 ---
 
 ## How to Use
-1. **Paste:** Throw your lyrics and chords into the editor. (Pro-tip: Use spaces and the Tab key to align chords).
-2. **Scroll:** Hit "Get Scrollin'" and find your perfect speed.
-3. **Save:** Your songs are automatically saved to your "Songbook" (Library).
+- **Click:** [Scrorkie](https://l-zia-l.github.io/scrorkie)
+- **Paste:** Throw your lyrics and chords into the editor. (Pro-tip: Use spaces and the Tab key to align chords).
+- **Scroll:** Hit "Get Scrollin'" and find your perfect speed.
+- **Save:** Your songs are automatically saved to your "Songbook" (Library).
 
 ---
 
@@ -41,4 +42,3 @@ If Scrorkie helped you nail that one difficult solo or made your at home, practi
 ## The Fine Print
 Scrorkie is open-source and free to use. 
 ** Powered by ZiA **
-[My Other Creations](https://linktr.ee/zia.stuff)
