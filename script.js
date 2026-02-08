@@ -37,7 +37,7 @@ const btnDelete = document.getElementById('btn-delete');
 
 // State Variables
 let isScrolling = false;
-let scrollSpeed = 30;
+let scrollSpeed = 50;
 let scrollInterval;
 let currentSongId = null;
 
@@ -160,14 +160,16 @@ btnFaster.addEventListener('click', () => {
 });
 
 btnSlower.addEventListener('click', () => {
-    scrollSpeed += 5;
-    updateSpeedUI();
-    if (isScrolling) { stopScrolling(); startScrolling(); }
+    if (scrollSpeed < 100) {
+        scrollSpeed += 5;
+        updateSpeedUI();
+        if (isScrolling) { stopScrolling(); startScrolling(); }
+    }
 });
 
 // Speed Badge
 function updateSpeedUI() {
-    const level = Math.max(1, Math.floor((60 - scrollSpeed) / 5));
+    const level = Math.max(1, Math.floor((105 - scrollSpeed) / 5));
 
     speedBadge.textContent = `Speed: ${level}`;
     speedBadge.classList.remove('hidden');
@@ -177,7 +179,6 @@ function updateSpeedUI() {
     clearTimeout(badgeTimeout);
     badgeTimeout = setTimeout(() => {
         speedBadge.classList.remove('visible');
-
         setTimeout(() => speedBadge.classList.add('hidden'), 300);
     }, 1500);
 }
@@ -362,21 +363,29 @@ searchInput.addEventListener('input', (e) => {
 window.addEventListener('keydown', (e) => {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
+    const isViewing = !viewerView.classList.contains('hidden');
+
     if (e.code === 'Space') {
         e.preventDefault();
-        if (!isScrolling) {
-            btnPlay.click();
-        } else {
-            btnPause.click();
+        if (isViewing) {
+            if (!isScrolling) {
+                btnPlay.click();
+            } else {
+                btnPause.click();
+            }
         }
     }
     else if (e.code === 'ArrowUp') {
-        e.preventDefault();
-        btnFaster.click();
+        if (isViewing) {
+            e.preventDefault();
+            btnFaster.click();
+        }
     }
     else if (e.code === 'ArrowDown') {
-        e.preventDefault();
-        btnSlower.click();
+        if (isViewing) {
+            e.preventDefault();
+            btnSlower.click();
+        }
     }
 });
 
