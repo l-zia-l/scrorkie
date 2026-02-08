@@ -152,16 +152,16 @@ btnReset.addEventListener('click', () => {
 
 // Adjust Speed
 btnFaster.addEventListener('click', () => {
-    if (scrollSpeed > 5) {
-        scrollSpeed -= 5;
+    if (scrollSpeed > 10) {
+        scrollSpeed -= 10;
         updateSpeedUI();
         if (isScrolling) { stopScrolling(); startScrolling(); }
     }
 });
 
 btnSlower.addEventListener('click', () => {
-    if (scrollSpeed < 100) {
-        scrollSpeed += 5;
+    if (scrollSpeed < 500) {
+        scrollSpeed += 10;
         updateSpeedUI();
         if (isScrolling) { stopScrolling(); startScrolling(); }
     }
@@ -169,7 +169,7 @@ btnSlower.addEventListener('click', () => {
 
 // Speed Badge
 function updateSpeedUI() {
-    const level = Math.max(1, Math.floor((105 - scrollSpeed) / 5));
+    const level = Math.max(1, Math.floor((510 - scrollSpeed) / 10));
 
     speedBadge.textContent = `Speed: ${level}`;
     speedBadge.classList.remove('hidden');
