@@ -40,4 +40,5 @@ If Scrorkie helped you nail that one difficult solo or made your at home, practi
 
 ## The Fine Print
 Scrorkie is open-source and free to use. 
-*Powered by ZiA.*
+** Powered by ZiA **
+[My Other Creations](https://linktr.ee/zia.stuff)
