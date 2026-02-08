@@ -31,6 +31,11 @@ Most tab sites are cluttered with ads, pop-ups, and "Subscribe Now!" banners. Sc
 
 ---
 
+## Feedback?
+Open an issue or reach out via LinkedIn -> https://www.linkedin.com/in/analetizia-simono-18b551346/
+
+---
+
 ## Support the Vibe
 If Scrorkie helped you nail that one difficult solo or made your at home, practice session a little easier, consider supporting the journey:
 
@@ -41,4 +46,4 @@ If Scrorkie helped you nail that one difficult solo or made your at home, practi
 
 ## The Fine Print
 Scrorkie is open-source and free to use. 
-** Powered by ZiA **
+**Powered by ZiA**
